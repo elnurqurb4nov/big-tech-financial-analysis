@@ -54,3 +54,4 @@ SELECT
     , 2) AS revenue_cagr_pct
 FROM financials
 GROUP BY company;
+

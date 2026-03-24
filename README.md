@@ -1,12 +1,10 @@
 # Big Tech Financial Risk & Growth Analysis (2018–2024)
 
-## Project Overview
+## Overview
+This project provides a **financial risk and growth analysis** of 10 major technology companies using SEC 10-K (GAAP) data from 2018–2024.  
+It evaluates structural differences in **growth, profitability, and cash flow stability** through a **SQL-based analytics workflow** and **Power BI dashboard design**.  
 
-This project analyzes the financial performance of 10 major technology companies using SEC 10-K annual (GAAP) data from 2018–2024.
-
-The objective is to evaluate structural differences in growth, profitability, and cash flow stability through a SQL-based analytics workflow and Power BI dashboard design.
-
-This is a finance-first analytics project focused on transforming raw financial statements into structured analytical insights.
+The project transforms raw financial statements into structured analytical insights suitable for **investors, analysts, and data-driven finance roles**.
 
 ---
 
@@ -25,13 +23,13 @@ This is a finance-first analytics project focused on transforming raw financial 
 
 ---
 
-## Data Source
+## Data Sources
 
 - SEC Form 10-K (Annual Reports)  
 - GAAP consolidated financial statements  
 - Period: 2018–2024  
 
-Metrics extracted:
+**Metrics extracted:**
 
 - Revenue  
 - Gross Profit  
@@ -43,70 +41,77 @@ Metrics extracted:
 
 ---
 
-## SQL Architecture
+## SQL Analytical Architecture
 
-The project follows a layered analytical structure:
+The project uses a **layered SQL approach** for data transformation and analysis:
 
 ### 1. Raw Layer
-`financials`  
-Master dataset containing cleaned annual financial data for all companies.
+- `financials` table: Master dataset containing cleaned annual financial data for all companies
 
 ### 2. Analytics Layer
-- Revenue YoY Growth (LAG window function)
-- Margin calculations (Gross, Operating, Net, FCF)
-- Revenue CAGR modeling (POWER function)
-- Free Cash Flow volatility (STDDEV)
+- Revenue YoY Growth (using `LAG` window function)  
+- Margin calculations (Gross, Operating, Net, Free Cash Flow)  
+- Revenue CAGR modeling (`POWER` function)  
+- Free Cash Flow volatility (`STDDEV`)  
 
 ### 3. Summary Layer
-- Risk–Growth quadrant framework
-- Executive comparison view
-- Company-level performance aggregation
+- Risk–Growth quadrant framework (CAGR vs FCF volatility)  
+- Executive overview comparisons  
+- Company-level performance aggregation  
 
-Key SQL techniques used:
-
-- Window Functions (LAG)
-- Aggregations (GROUP BY, STDDEV)
-- CAGR calculation using POWER
-- Multi-layered view design
-- Financial metric modeling
+**Key SQL techniques:** Window functions, aggregations (`GROUP BY`, `STDDEV`), CAGR calculation, multi-layered views, metric modeling
 
 ---
 
-## Dashboard Components
+## Power BI Dashboard
 
 ### Executive Overview
-- Revenue CAGR ranking
-- Risk–Growth quadrant (CAGR vs FCF volatility)
-- Margin comparison across companies
+- Revenue CAGR ranking  
+- Risk–Growth quadrant visualization  
+- Margin comparison across companies  
 - KPI summary cards
 
 ### Trend Analysis
-- Revenue trend (2018–2024)
-- Revenue YoY growth trend
-- Net margin trend
-- Free Cash Flow trend
+- Revenue trends (2018–2024)  
+- Revenue YoY growth trends  
+- Net margin trends  
+- Free Cash Flow trends  
+
+**Example Visualizations:**
+- Risk–Growth quadrant chart  
+- Revenue trend lines per company  
+- Free Cash Flow volatility comparison  
 
 ---
 
-## Key Observations
+## Key Insights
 
-- Nvidia emerged as a high-growth outlier with elevated volatility.
-- Adobe demonstrated strong risk-adjusted stability.
-- Microsoft showed balanced compounding characteristics.
-- Intel displayed structural contraction signals over the period.
+- **Nvidia:** High-growth outlier with elevated volatility  
+- **Adobe:** Strong risk-adjusted stability  
+- **Microsoft:** Balanced compounding characteristics  
+- **Intel:** Structural contraction signals over the period  
 
----
-
-## Tech Stack
-
-- PostgreSQL
-- SQL (Window Functions, Aggregations, Financial Modeling)
-- Power BI
+These insights highlight **differences in growth vs risk profiles** across Big Tech companies.
 
 ---
 
-## Purpose
+## Technologies Used
 
-This project is part of my portfolio as I continue building toward Financial / Business Data Analyst roles focused on finance-driven analytics and structured data modeling.
+- PostgreSQL / SQL (window functions, aggregations, financial metric modeling)  
+- Power BI for dashboard and interactive visualizations  
 
-The full SQL workflow and dashboard visualizations are included in this repository.
+---
+
+## How to Run
+
+1. Load `financials` table into PostgreSQL  
+2. Execute SQL scripts sequentially:  
+```sql
+-- Clean raw financials
+RUN scripts/01_raw_layer.sql;
+
+-- Calculate analytics metrics
+RUN scripts/02_analytics_layer.sql;
+
+-- Generate summary & risk-growth quadrant
+RUN scripts/03_summary_layer.sql;

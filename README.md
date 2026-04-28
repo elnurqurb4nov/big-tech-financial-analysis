@@ -1,117 +1,55 @@
 # Big Tech Financial Risk & Growth Analysis (2018–2024)
 
 ## Overview
-This project provides a **financial risk and growth analysis** of 10 major technology companies using SEC 10-K (GAAP) data from 2018–2024.  
-It evaluates structural differences in **growth, profitability, and cash flow stability** through a **SQL-based analytics workflow** and **Power BI dashboard design**.  
 
-The project transforms raw financial statements into structured analytical insights suitable for **investors, analysts, and data-driven finance roles**.
+This project analyzes the financial performance, growth quality, and cash flow stability of 10 major technology companies using SEC 10-K annual financial statement data from 2018 to 2024.
+
+The main goal of the project is to understand how large technology firms differ in terms of revenue growth, profitability, free cash flow generation, and financial volatility. The analysis is built through a SQL-based analytics workflow and presented through a Power BI dashboard structure.
+
+Rather than looking only at company size or market popularity, this project focuses on the financial fundamentals behind each company’s performance.
+
+---
+
+## Research Question
+
+**Which Big Tech companies combined strong revenue growth with stable profitability and cash flow performance between 2018 and 2024?**
+
+The analysis compares companies across three main dimensions:
+
+- Growth strength
+- Profitability quality
+- Free cash flow stability
 
 ---
 
 ## Companies Included
 
-- Apple  
-- Microsoft  
-- Alphabet  
-- Meta  
-- Amazon  
-- Nvidia  
-- Netflix  
-- Adobe  
-- Salesforce  
-- Intel  
+The analysis covers 10 large technology companies:
+
+- Apple
+- Microsoft
+- Alphabet
+- Meta
+- Amazon
+- Nvidia
+- Netflix
+- Adobe
+- Salesforce
+- Intel
+
+These companies were selected because they represent different segments of the technology sector, including software, cloud computing, semiconductors, digital advertising, e-commerce, streaming, and consumer electronics.
 
 ---
 
 ## Data Sources
 
-- SEC Form 10-K (Annual Reports)  
-- GAAP consolidated financial statements  
-- Period: 2018–2024  
+The project uses publicly available annual financial data from:
 
-**Metrics extracted:**
+- SEC Form 10-K filings
+- GAAP consolidated financial statements
+- Company annual reports
 
-- Revenue  
-- Gross Profit  
-- Operating Income  
-- Net Income  
-- Operating Cash Flow  
-- Capital Expenditures  
-- Free Cash Flow  
+Period covered:
 
----
-
-## SQL Analytical Architecture
-
-The project uses a **layered SQL approach** for data transformation and analysis:
-
-### 1. Raw Layer
-- `financials` table: Master dataset containing cleaned annual financial data for all companies
-
-### 2. Analytics Layer
-- Revenue YoY Growth (using `LAG` window function)  
-- Margin calculations (Gross, Operating, Net, Free Cash Flow)  
-- Revenue CAGR modeling (`POWER` function)  
-- Free Cash Flow volatility (`STDDEV`)  
-
-### 3. Summary Layer
-- Risk–Growth quadrant framework (CAGR vs FCF volatility)  
-- Executive overview comparisons  
-- Company-level performance aggregation  
-
-**Key SQL techniques:** Window functions, aggregations (`GROUP BY`, `STDDEV`), CAGR calculation, multi-layered views, metric modeling
-
----
-
-## Power BI Dashboard
-
-### Executive Overview
-- Revenue CAGR ranking  
-- Risk–Growth quadrant visualization  
-- Margin comparison across companies  
-- KPI summary cards
-
-### Trend Analysis
-- Revenue trends (2018–2024)  
-- Revenue YoY growth trends  
-- Net margin trends  
-- Free Cash Flow trends  
-
-**Example Visualizations:**
-- Risk–Growth quadrant chart  
-- Revenue trend lines per company  
-- Free Cash Flow volatility comparison  
-
----
-
-## Key Insights
-
-- **Nvidia:** High-growth outlier with elevated volatility  
-- **Adobe:** Strong risk-adjusted stability  
-- **Microsoft:** Balanced compounding characteristics  
-- **Intel:** Structural contraction signals over the period  
-
-These insights highlight **differences in growth vs risk profiles** across Big Tech companies.
-
----
-
-## Technologies Used
-
-- PostgreSQL / SQL (window functions, aggregations, financial metric modeling)  
-- Power BI for dashboard and interactive visualizations  
-
----
-
-## How to Run
-
-1. Load `financials` table into PostgreSQL  
-2. Execute SQL scripts sequentially:  
-```sql
--- Clean raw financials
-RUN scripts/01_raw_layer.sql;
-
--- Calculate analytics metrics
-RUN scripts/02_analytics_layer.sql;
-
--- Generate summary & risk-growth quadrant
-RUN scripts/03_summary_layer.sql;
+```text
+2018–2024
